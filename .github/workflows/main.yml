@@ -48,7 +48,7 @@ jobs:
     - name: 'Set Service Principal ID'
       id: setSpId
       run: |
-        SP_ID=$(az ad sp show --id ${{ fromJSON(secrets.AZURE_CREDENTIALS).clientId }} --query objectId -o tsv)
+        SP_ID=$(az ad sp show --id ${{ fromJSON(secrets.AZURE_CREDENTIALS).clientId }} --query id -o tsv)
         echo "::set-output name=spId::${SP_ID}"
 
     - name: 'Mask Service Principal Key'
